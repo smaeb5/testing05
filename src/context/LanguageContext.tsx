@@ -117,7 +117,7 @@ const TRANSLATIONS: Record<SupportedLanguage, Translations> = {
     step2Subtitle: 'Choose recipient official',
     optionalDetails: 'Your Details (Optional)',
     senderNameLabel: 'Your Name (Optional)',
-    senderNamePlaceholder: 'e.g. Muhammad Khan',
+    senderNamePlaceholder: 'e.g. Mohsin Khan',
     senderPhoneLabel: 'Phone / WhatsApp (Optional)',
     senderPhonePlaceholder: 'e.g. 0300-1234567',
     submitButton: 'Send Complaint to Official',

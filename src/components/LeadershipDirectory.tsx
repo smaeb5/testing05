@@ -41,7 +41,7 @@ export const LeadershipDirectory: React.FC<LeadershipDirectoryProps> = ({
                 {official.badge}
               </span>
               <span className="text-[10px] font-mono text-stone-400">
-                Officials {idx + 1}
+                Official
               </span>
             </div>
 

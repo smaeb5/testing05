@@ -108,7 +108,7 @@ export const SimpleComplaintBox: React.FC<SimpleComplaintBoxProps> = ({
   const getEmailUrl = (submission: ComplaintSubmission) => {
     const subject = `[SCCweb Grievance] ${submission.referenceNumber}: ${submission.recipient.title}`;
     const body = `SWAT CABINET COMPLAINT WEB (SCCweb)\nOfficial Reference Number: ${submission.referenceNumber}\nAssigned Official: ${submission.recipient.title} - ${submission.recipient.officialName} (${submission.recipient.designation})\n\nReport Details:\n${submission.issueText}\n\nSender Name: ${submission.senderName || 'Direct Citizen'}\nContact: ${submission.senderPhone || 'Not Provided'}\nDate & Time: ${new Date(submission.submittedAt).toLocaleString()}`;
-    return `mailto:${submission.recipient.emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    return `mailto:${encodeURIComponent(submission.recipient.emailAddress)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   const copyRef = (ref: string) => {
@@ -283,7 +283,7 @@ export const SimpleComplaintBox: React.FC<SimpleComplaintBoxProps> = ({
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {committees.map((comm) => {
+                  {committees.slice(0, 3).map((comm) => {
                     const isSelected = selectedCommitteeId === comm.id;
                     return (
                       <motion.div
@@ -615,6 +615,15 @@ export const SimpleComplaintBox: React.FC<SimpleComplaintBoxProps> = ({
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
                     href={getEmailUrl(activeSubmission)}
+                    onClick={(e) => {
+                      // Fallback: if mailto protocol doesn't launch default client within 1.5s, trigger web Gmail compose
+                      const gmailFallback = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(activeSubmission.recipient.emailAddress)}&su=${encodeURIComponent(`[SCCweb Grievance] ${activeSubmission.referenceNumber}: ${activeSubmission.recipient.title}`)}&body=${encodeURIComponent(`SWAT CABINET COMPLAINT WEB (SCCweb)\nOfficial Reference Number: ${activeSubmission.referenceNumber}\nAssigned Official: ${activeSubmission.recipient.title} - ${activeSubmission.recipient.officialName} (${activeSubmission.recipient.designation})\n\nReport Details:\n${activeSubmission.issueText}\n\nSender Name: ${activeSubmission.senderName || 'Direct Citizen'}\nContact: ${activeSubmission.senderPhone || 'Not Provided'}\nDate & Time: ${new Date(activeSubmission.submittedAt).toLocaleString()}`)}`;
+                      setTimeout(() => {
+                        if (document.hasFocus()) {
+                          window.open(gmailFallback, '_blank');
+                        }
+                      }, 1200);
+                    }}
                     className="px-4 py-3 bg-stone-900 dark:bg-stone-700 hover:bg-stone-800 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Mail className="w-4 h-4 text-amber-400" />

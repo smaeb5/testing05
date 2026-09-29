@@ -182,14 +182,34 @@ export function App() {
             )}
           </div>
         ) : currentTab === 'leadership' ? (
-          <LeadershipDirectory
-            committees={committees}
-            onSelectOfficialForComplaint={handleSelectOfficialFromDirectory}
-          />
+          <div className="space-y-4">
+            {/* Back to Portal */}
+            <button
+              onClick={() => setCurrentTab('portal')}
+              className="flex items-center gap-1.5 text-xs font-bold text-stone-600 dark:text-stone-400 hover:text-red-900 dark:hover:text-amber-400 transition-colors cursor-pointer group"
+            >
+              <span className="text-base leading-none group-hover:-translate-x-0.5 transition-transform inline-block">←</span>
+              <span>Back to Portal</span>
+            </button>
+            <LeadershipDirectory
+              committees={committees}
+              onSelectOfficialForComplaint={handleSelectOfficialFromDirectory}
+            />
+          </div>
         ) : (
-          <DeveloperPage
-            onBackToPortal={() => setCurrentTab('portal')}
-          />
+          <div className="space-y-4">
+            {/* Back to Portal */}
+            <button
+              onClick={() => setCurrentTab('portal')}
+              className="flex items-center gap-1.5 text-xs font-bold text-stone-600 dark:text-stone-400 hover:text-red-900 dark:hover:text-amber-400 transition-colors cursor-pointer group"
+            >
+              <span className="text-base leading-none group-hover:-translate-x-0.5 transition-transform inline-block">←</span>
+              <span>Back to Portal</span>
+            </button>
+            <DeveloperPage
+              onBackToPortal={() => setCurrentTab('portal')}
+            />
+          </div>
         )}
       </main>
 

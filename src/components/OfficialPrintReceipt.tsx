@@ -116,17 +116,40 @@ export const OfficialPrintReceipt: React.FC<OfficialPrintReceiptProps> = ({ subm
           </div>
 
           {/* Issue Particulars */}
-          <div className="mb-8">
+          <div className="mb-8" style={{ pageBreakInside: 'avoid' }}>
             <h2 className="text-xs font-bold uppercase tracking-wider text-red-900 border-b border-stone-300 pb-1 mb-2">
               Reported Issue / Grievance Statement
             </h2>
-            <div className="bg-stone-50 border border-stone-200 p-4 rounded text-sm text-stone-900 whitespace-pre-wrap leading-relaxed">
-              {submission.issueText}
-            </div>
+
+            {/* Short preview on page 1 — max ~300 chars */}
+            {submission.issueText.length <= 400 ? (
+              <div className="bg-stone-50 border border-stone-200 p-4 rounded text-sm text-stone-900 whitespace-pre-wrap leading-relaxed">
+                {submission.issueText}
+              </div>
+            ) : (
+              <>
+                <div className="bg-stone-50 border border-stone-200 p-4 rounded text-sm text-stone-900 whitespace-pre-wrap leading-relaxed">
+                  {submission.issueText.slice(0, 400)}...
+                </div>
+                <p className="text-[10px] italic text-stone-500 mt-1">
+                  ↓ Full grievance text continued below / on next page
+                </p>
+                {/* Full text block — will naturally flow to page 2 if needed */}
+                <div
+                  className="bg-stone-50 border border-stone-200 p-4 rounded text-sm text-stone-900 whitespace-pre-wrap leading-relaxed mt-4"
+                  style={{ pageBreakBefore: 'auto', pageBreakInside: 'auto' }}
+                >
+                  <span className="text-[10px] font-bold uppercase text-red-900 block mb-1">
+                    Full Statement (continued):
+                  </span>
+                  {submission.issueText}
+                </div>
+              </>
+            )}
 
             {/* Attached Evidence (Image / Video Preview) */}
             {submission.attachment && (
-              <div className="mt-3 p-3 bg-stone-50 border border-stone-200 rounded">
+              <div className="mt-3 p-3 bg-stone-50 border border-stone-200 rounded" style={{ pageBreakInside: 'avoid' }}>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-stone-600 block mb-1.5">
                   Attached Evidence ({submission.attachment.type === 'image' ? 'Photograph' : 'Video / Clip'} &bull; {submission.attachment.fileName})
                 </span>

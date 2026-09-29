@@ -37,9 +37,33 @@ export const DEFAULT_COMMITTEES: RecipientCommittee[] = [
     badge: 'Presidency',
     avatarUrl: '/images/hassan_bacha.png',
   },
+  {
+    id: 'finance-secretary',
+    category: 'finance',
+    title: 'Finance Secretary',
+    officialName: 'Engr. Bilal Ahmad Khan',
+    designation: 'Finance Secretary',
+    contactNumber: '0341-5534677',
+    whatsappNumber: '923415534677',
+    emailAddress: 'engbilalahmadkhan035@gmail.com',
+    badge: 'Finance',
+    avatarUrl: '/images/bilal_ahmad_khan.jpeg',
+  },
+  {
+    id: 'additional-general-secretary',
+    category: 'general',
+    title: 'General Secretariat',
+    officialName: 'Aleem Ullah',
+    designation: 'Additional General Secretary',
+    contactNumber: '0319-0151874',
+    whatsappNumber: '923190151874',
+    emailAddress: 'aleemsagar75@gmail.com',
+    badge: 'Secretariat',
+    avatarUrl: '/images/aleem_ullah.jpeg',
+  },
 ];
 
-const STORAGE_KEY = 'sccweb_committees_v11';
+const STORAGE_KEY = 'sccweb_committees_v12';
 
 export function getCommittees(): RecipientCommittee[] {
   try {
