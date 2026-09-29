@@ -108,7 +108,7 @@ export const SimpleComplaintBox: React.FC<SimpleComplaintBoxProps> = ({
   const getEmailUrl = (submission: ComplaintSubmission) => {
     const subject = `[SCCweb Grievance] ${submission.referenceNumber}: ${submission.recipient.title}`;
     const body = `SWAT CABINET COMPLAINT WEB (SCCweb)\nOfficial Reference Number: ${submission.referenceNumber}\nAssigned Official: ${submission.recipient.title} - ${submission.recipient.officialName} (${submission.recipient.designation})\n\nReport Details:\n${submission.issueText}\n\nSender Name: ${submission.senderName || 'Direct Citizen'}\nContact: ${submission.senderPhone || 'Not Provided'}\nDate & Time: ${new Date(submission.submittedAt).toLocaleString()}`;
-    return `mailto:${encodeURIComponent(submission.recipient.emailAddress)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    return `mailto:${submission.recipient.emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   const copyRef = (ref: string) => {

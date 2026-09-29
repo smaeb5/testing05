@@ -22,13 +22,14 @@ export const DeveloperPage: React.FC<DeveloperPageProps> = ({ onBackToPortal }) 
         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 pb-5 border-b border-stone-200 dark:border-stone-800 text-center sm:text-left">
           {/* Photo */}
           <motion.div
-            initial={{ scale: 0.8, rotate: -8, opacity: 0 }}
-            animate={{ scale: 1, rotate: 0, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 200, damping: 12, delay: 0.15 }}
+            initial={{ scale: 0.5, y: 20, opacity: 0, borderRadius: "100%" }}
+            animate={{ scale: 1, y: 0, opacity: 1, borderRadius: "1rem" }}
+            transition={{ type: "spring", stiffness: 250, damping: 20, delay: 0.1 }}
             whileHover={{ 
               scale: 1.1, 
-              rotate: 5, 
-              boxShadow: "0 20px 25px -5px rgba(217, 119, 6, 0.4), 0 8px 10px -6px rgba(217, 119, 6, 0.4)" 
+              y: -5,
+              borderRadius: "50%",
+              boxShadow: "0 25px 50px -12px rgba(217, 119, 6, 0.6)" 
             }}
             whileTap={{ scale: 0.95, rotate: -2 }}
             className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-amber-500 shadow-lg bg-stone-900 flex-shrink-0 cursor-pointer relative z-10"

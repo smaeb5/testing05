@@ -160,7 +160,7 @@ export function App() {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {committees.slice(0, 9).map((comm) => (
+                  {committees.slice(0, 6).map((comm) => (
                     <div
                       key={`dir-${comm.id}`}
                       onClick={() => handleSelectOfficialFromDirectory(comm.id)}
