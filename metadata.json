@@ -1,0 +1,6 @@
+{
+  "name": "SWAT CABINET COMPLAINT WEB (SCCweb)",
+  "description": "Simple, direct grievance dispatch portal for SWAT Cabinet Committees and the President's Secretary.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

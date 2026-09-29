@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-heading: 'Cinzel', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', 'Noto Sans Arabic', 'Noto Nastaliq Urdu', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+[dir="rtl"] body,
+.rtl-active body {
+  font-family: 'Noto Sans Arabic', 'Noto Nastaliq Urdu', 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+[dir="rtl"] .font-heading {
+  font-family: 'Noto Sans Arabic', 'Noto Nastaliq Urdu', 'Cinzel', sans-serif;
+}
+
+.font-serif-display {
+  font-family: var(--font-serif);
+}
+
+/* Pure waving flag white outline filter - renders clean outer white glow/outline around flag silhouette without square box */
+.flag-white-outline {
+  filter: drop-shadow(1px 0 0 #FFFFFF)
+          drop-shadow(-1px 0 0 #FFFFFF)
+          drop-shadow(0 1px 0 #FFFFFF)
+          drop-shadow(0 -1px 0 #FFFFFF)
+          drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45));
+}
+
+.dark .flag-white-outline {
+  filter: drop-shadow(1.5px 0 0 #FFFFFF)
+          drop-shadow(-1.5px 0 0 #FFFFFF)
+          drop-shadow(0 1.5px 0 #FFFFFF)
+          drop-shadow(0 -1.5px 0 #FFFFFF)
+          drop-shadow(0 3px 6px rgba(0, 0, 0, 0.6));
+}
+
+/* Print Specific Rules for Official Grievance Receipt */
+@media print {
+  html, body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .no-print, header, nav, button, .dark {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 1cm !important;
+    background: #FFFFFF !important;
+  }
+}
+
+@media screen {
+  .print-only {
+    display: none !important;
+  }
+}
+
