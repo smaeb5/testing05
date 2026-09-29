@@ -9,6 +9,7 @@ interface HeaderNavProps {
   onTabChange: (tab: 'portal' | 'leadership' | 'developer') => void;
   darkMode: boolean;
   onToggleDarkMode: () => void;
+  onHomeClick: () => void;
 }
 
 export const HeaderNav: React.FC<HeaderNavProps> = ({
@@ -16,6 +17,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
   onTabChange,
   darkMode,
   onToggleDarkMode,
+  onHomeClick,
 }) => {
   const { t } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -25,12 +27,17 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
     setMobileMenuOpen(false);
   };
 
+  const handleLogoClick = () => {
+    onHomeClick();
+    setMobileMenuOpen(false);
+  };
+
   return (
     <header className="no-print bg-stone-900 dark:bg-stone-950 border-b border-stone-800 sticky top-0 z-40 shadow-lg transition-colors">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between gap-3">
         {/* Brand & Emblem */}
         <div
-          onClick={() => handleNavClick('portal')}
+          onClick={handleLogoClick}
           className="flex items-center gap-2.5 sm:gap-3 cursor-pointer group min-w-0"
           role="button"
           tabIndex={0}

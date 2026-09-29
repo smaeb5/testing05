@@ -92,6 +92,9 @@ export function App() {
         onTabChange={setCurrentTab}
         darkMode={darkMode}
         onToggleDarkMode={toggleDarkMode}
+        onHomeClick={() => {
+          window.location.reload();
+        }}
       />
 
       {/* Main Container */}
@@ -100,7 +103,11 @@ export function App() {
           <div className="space-y-6">
             {/* Quick Hero Slogan with Official Waving Swat Flag & Smart Language Switcher */}
             <div className="text-center space-y-3 mb-6">
-              <div className="flex items-center justify-center">
+              <div 
+                className="flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
+                onClick={handleReset}
+                title="Return to Home"
+              >
                 <SwatFlagLogo size="lg" />
               </div>
 

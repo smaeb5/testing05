@@ -431,6 +431,18 @@ export const SimpleComplaintBox: React.FC<SimpleComplaintBoxProps> = ({
             }}
             className="bg-white dark:bg-stone-900 rounded-2xl shadow-2xl border-2 border-red-900/30 dark:border-stone-800 overflow-hidden"
           >
+            {/* Top Back Navigation within Success Card - PROMINENT */}
+            <div className="bg-stone-100 dark:bg-stone-800 border-b border-stone-200 dark:border-stone-700 px-4 py-3 flex justify-start">
+              <button
+                type="button"
+                onClick={onReset}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-stone-900 hover:bg-stone-50 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-300 text-xs font-bold transition-all cursor-pointer shadow-sm border border-stone-300 dark:border-stone-600"
+              >
+                <span className="text-sm leading-none">←</span>
+                <span>Back to Portal Home</span>
+              </button>
+            </div>
+
             {/* Red & Gold Victory Banner */}
             <div className="bg-gradient-to-r from-red-950 via-red-900 to-red-950 text-white p-6 text-center border-b-2 border-amber-500 relative">
               <motion.div
