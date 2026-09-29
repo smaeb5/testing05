@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MessageSquare, Terminal, ArrowLeft } from 'lucide-react';
+import { Mail, MessageSquare, Terminal } from 'lucide-react';
 import { motion } from 'motion/react';
 
 interface DeveloperPageProps {
@@ -17,18 +17,7 @@ export const DeveloperPage: React.FC<DeveloperPageProps> = ({ onBackToPortal }) 
       transition={{ duration: 0.25 }}
       className="max-w-2xl mx-auto space-y-5"
     >
-      {/* Top Simple Back Navigation */}
-      <div className="flex items-center justify-between">
-        <button
-          onClick={onBackToPortal}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-stone-200 dark:bg-stone-800 hover:bg-stone-300 dark:hover:bg-stone-700 text-stone-800 dark:text-stone-200 text-xs font-bold transition-colors cursor-pointer"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Back to Complaint Portal</span>
-        </button>
-      </div>
 
-      {/* Developer Profile Card */}
       <div className="bg-white dark:bg-stone-900 rounded-2xl p-5 sm:p-6 border border-stone-200 dark:border-stone-800 shadow-md">
         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 pb-5 border-b border-stone-200 dark:border-stone-800 text-center sm:text-left">
           {/* Photo */}

@@ -28,6 +28,18 @@ const OFFICIAL_IMAGE_MAP: Record<string, string[]> = {
     '/images/aleem_ullah.jpeg',
     'https://raw.githubusercontent.com/smaeb5/SCCW/main/aleem.jpeg',
   ],
+  'dist-senior-vice-president': [
+    '/images/kiramat_ali.jpg',
+  ],
+  'dist-general-secretary': [
+    '/images/sohail_ahmad.png',
+  ],
+  'dist-labor-secretary': [
+    '/images/muhammad_zakria.jpg',
+  ],
+  'dist-legal-secretary': [
+    '/images/muhammad_zeeshan.jpg',
+  ],
 };
 
 export const OfficialAvatar: React.FC<OfficialAvatarProps> = ({

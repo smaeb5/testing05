@@ -61,9 +61,57 @@ export const DEFAULT_COMMITTEES: RecipientCommittee[] = [
     badge: 'Secretariat',
     avatarUrl: '/images/aleem_ullah.jpeg',
   },
+  {
+    id: 'dist-senior-vice-president',
+    category: 'presidency',
+    title: 'Dist Senior Vice President',
+    officialName: 'Kiramat Ali',
+    designation: 'Dist Senior Vice President',
+    contactNumber: '+92 348 9591509',
+    whatsappNumber: '923489591509',
+    emailAddress: 'kiramata0331@gmail.com',
+    badge: 'Presidency',
+    avatarUrl: '/images/kiramat_ali.jpg',
+  },
+  {
+    id: 'dist-general-secretary',
+    category: 'secretariat',
+    title: 'Dist General Secretary',
+    officialName: 'Sohail Ahmad',
+    designation: 'Dist General Secretary',
+    contactNumber: '0342-9220473',
+    whatsappNumber: '923429220473',
+    emailAddress: 'Sohailahmadk19@gmail.com',
+    badge: 'Secretariat',
+    avatarUrl: '/images/sohail_ahmad.png',
+  },
+  {
+    id: 'dist-labor-secretary',
+    category: 'labor',
+    title: 'Dist Labor Secretary',
+    officialName: 'Muhammad Zakria',
+    designation: 'Dist Labor Secretary',
+    contactNumber: '+92 347 5148279',
+    whatsappNumber: '923475148279',
+    emailAddress: 'zakriakhan15602@gmail.com',
+    badge: 'Labor',
+    avatarUrl: '/images/muhammad_zakria.jpg',
+  },
+  {
+    id: 'dist-legal-secretary',
+    category: 'legal',
+    title: 'Dist Legal Secretary',
+    officialName: 'Muhammad Zeeshan',
+    designation: 'Dist Legal Secretary',
+    contactNumber: '+92 346 3052650',
+    whatsappNumber: '923463052650',
+    emailAddress: 'zeeshan@gmail.com',
+    badge: 'Legal',
+    avatarUrl: '/images/muhammad_zeeshan.jpg',
+  },
 ];
 
-const STORAGE_KEY = 'sccweb_committees_v12';
+const STORAGE_KEY = 'sccweb_committees_v13';
 
 export function getCommittees(): RecipientCommittee[] {
   try {

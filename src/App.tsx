@@ -131,8 +131,6 @@ export function App() {
               defaultSelectedCommitteeId={preselectedOfficialId || undefined}
             />
 
-            {/* Regional Affairs & News Feeds - Swat News, KP RTI / Daily Aaj, ARY News, Khyber News */}
-            <RegionalAffairsNewsFeed />
 
             {/* SWAT CABINET Officials Showcase */}
             {!activeSubmission && (
@@ -155,7 +153,7 @@ export function App() {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {committees.map((comm) => (
+                  {committees.slice(0, 9).map((comm) => (
                     <div
                       key={`dir-${comm.id}`}
                       onClick={() => handleSelectOfficialFromDirectory(comm.id)}

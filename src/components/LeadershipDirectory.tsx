@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { RecipientCommittee } from '../types';
-import { ArrowRight, Send } from 'lucide-react';
-import { motion } from 'motion/react';
+import { ArrowRight, Send, Newspaper } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import { OfficialAvatar } from './OfficialAvatar';
+import { RegionalAffairsNewsFeed } from './RegionalAffairsNewsFeed';
 
 interface LeadershipDirectoryProps {
   committees: RecipientCommittee[];
@@ -13,6 +14,8 @@ export const LeadershipDirectory: React.FC<LeadershipDirectoryProps> = ({
   committees,
   onSelectOfficialForComplaint,
 }) => {
+  const [showNews, setShowNews] = useState(false);
+
   return (
     <div className="space-y-6">
       {/* Leadership Header Banner */}
@@ -79,6 +82,31 @@ export const LeadershipDirectory: React.FC<LeadershipDirectoryProps> = ({
           </motion.div>
         ))}
       </div>
+
+      {/* News Toggle Button */}
+      <div className="pt-4 border-t border-stone-200 dark:border-stone-800 flex justify-center">
+        <button
+          onClick={() => setShowNews((prev) => !prev)}
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-stone-900 dark:bg-stone-800 hover:bg-red-900 dark:hover:bg-red-900 text-amber-300 text-xs font-bold tracking-wider transition-all cursor-pointer border border-amber-500/30 shadow"
+        >
+          <Newspaper className="w-4 h-4 text-amber-400" />
+          <span>{showNews ? 'Hide Regional News' : 'Regional & Swat News'}</span>
+        </button>
+      </div>
+
+      {/* Regional News Feed (toggled) */}
+      <AnimatePresence>
+        {showNews && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.22 }}
+          >
+            <RegionalAffairsNewsFeed />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

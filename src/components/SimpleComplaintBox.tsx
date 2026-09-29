@@ -676,15 +676,17 @@ export const SimpleComplaintBox: React.FC<SimpleComplaintBoxProps> = ({
               </div>
 
               {/* Reset / Submit Another */}
-              <div className="pt-2 flex items-center justify-between">
-                <button
-                  type="button"
-                  onClick={onReset}
-                  className="px-5 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 hover:border-stone-400 text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white font-bold text-xs uppercase tracking-wider bg-white dark:bg-stone-800 hover:bg-stone-50 dark:hover:bg-stone-700 transition-all flex items-center gap-1.5 cursor-pointer shadow-sm"
-                >
-                  <RotateCcw className="w-3.5 h-3.5" />
-                  <span>{t.newComplaint}</span>
-                </button>
+              <div className="pt-2 flex items-center justify-between gap-2 flex-wrap">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <button
+                    type="button"
+                    onClick={onReset}
+                    className="px-4 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 hover:border-stone-400 text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white font-bold text-xs uppercase tracking-wider bg-white dark:bg-stone-800 hover:bg-stone-50 dark:hover:bg-stone-700 transition-all flex items-center gap-1.5 cursor-pointer shadow-sm"
+                  >
+                    <RotateCcw className="w-3.5 h-3.5" />
+                    <span>{t.newComplaint}</span>
+                  </button>
+                </div>
 
                 <button
                   type="button"
